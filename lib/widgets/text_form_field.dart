@@ -7,6 +7,7 @@ class MyTextFormField extends StatelessWidget {
   final String? initialValue;
   final bool? enabled;
   final TextEditingController? controller;
+  final String? tooltip;
 
   const MyTextFormField({
     Key? key,
@@ -15,11 +16,12 @@ class MyTextFormField extends StatelessWidget {
     this.initialValue,
     this.enabled,
     this.controller,
+    this.tooltip,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
+    final field = TextFormField(
       controller: controller,
       enabled: enabled,
       initialValue: initialValue,
@@ -36,5 +38,6 @@ class MyTextFormField extends StatelessWidget {
       ),
       onChanged: onChanged,
     );
+    return tooltip != null ? Tooltip(message: tooltip!, child: field) : field;
   }
 }
