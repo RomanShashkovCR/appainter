@@ -12,6 +12,8 @@ class ButtonUtils {
       if (states.contains(MaterialState.disabled)) {
         return disabledColor ?? color.resolve({MaterialState.disabled});
       }
+
+
       return defaultColor ?? color.resolve({});
     });
   }
